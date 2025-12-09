@@ -1,47 +1,141 @@
-FreeBSD Source:
----------------
-This is the top level of the FreeBSD source directory.
+# LLAMBO OS  
+**Status: Pre-Alpha — Under Active Development**
 
-FreeBSD is an operating system used to power modern servers, desktops, and embedded platforms.
-A large community has continually developed it for more than thirty years.
-Its advanced networking, security, and storage features have made FreeBSD the platform of choice for many of the busiest web sites and most pervasive embedded networking and storage devices.
+**LLAMBO OS** is a modern FreeBSD-based operating system designed for self-hosting, privacy, and sovereign computing.
 
-For copyright information, please see [the file COPYRIGHT](COPYRIGHT) in this directory.
-Additional copyright information also exists for some sources in this tree - please see the specific source directories for more information.
+Built for both casual users and power operators, LLAMBO OS aims to make it effortless to deploy blockchain nodes and self-hosted services on secure, stable hardware — all managed from the upcoming **Llambo Dashboard**.
 
-The Makefile in this directory supports a number of targets for building components (or all) of the FreeBSD source tree.
-See build(7), config(8), [FreeBSD handbook on building userland](https://docs.freebsd.org/en/books/handbook/cutting-edge/#makeworld), and [Handbook for kernels](https://docs.freebsd.org/en/books/handbook/kernelconfig/) for more information, including setting make(1) variables.
+This repository is the early development fork of FreeBSD that will become the LLAMBO OS foundation.  
+Features described below represent our **roadmap**, not the current state.
 
-For information on the CPU architectures and platforms supported by FreeBSD, see the [FreeBSD
-website's Platforms page](https://www.freebsd.org/platforms/).
+---
 
-For official FreeBSD bootable images, see the [release page](https://download.freebsd.org/ftp/releases/ISO-IMAGES/).
+## 🚀 Core Mission
 
-Source Roadmap:
----------------
-| Directory | Description |
-| --------- | ----------- |
-| bin | System/user commands. |
-| cddl | Various commands and libraries under the Common Development and Distribution License. |
-| contrib | Packages contributed by 3rd parties. |
-| crypto | Cryptography stuff (see [crypto/README](crypto/README)). |
-| etc | Template files for /etc. |
-| gnu | Commands and libraries under the GNU General Public License (GPL) or Lesser General Public License (LGPL). Please see [gnu/COPYING](gnu/COPYING) and [gnu/COPYING.LIB](gnu/COPYING.LIB) for more information. |
-| include | System include files. |
-| kerberos5 | Kerberos5 (Heimdal) package. |
-| lib | System libraries. |
-| libexec | System daemons. |
-| release | Release building Makefile & associated tools. |
-| rescue | Build system for statically linked /rescue utilities. |
-| sbin | System commands. |
-| secure | Cryptographic libraries and commands. |
-| share | Shared resources. |
-| stand | Boot loader sources. |
-| sys | Kernel sources (see [sys/README.md](sys/README.md)). |
-| targets | Support for experimental `DIRDEPS_BUILD` |
-| tests | Regression tests which can be run by Kyua.  See [tests/README](tests/README) for additional information. |
-| tools | Utilities for regression testing and miscellaneous tasks. |
-| usr.bin | User commands. |
-| usr.sbin | System administration commands. |
+LLAMBO OS aims to:
 
-For information on synchronizing your source tree with one or more of the FreeBSD Project's development branches, please see [FreeBSD Handbook](https://docs.freebsd.org/en/books/handbook/cutting-edge/#current-stable).
+- Provide a **plug-and-play alternative** to Linux-based platforms like Umbrel, Start9, and YunoHost  
+- Enable users to **run full blockchain nodes** and related services with no command-line interaction  
+- Deliver a **modular App Store** powered by FreeBSD jails for isolation and security  
+- Offer an experience that feels **Apple-simple**, while staying fully self-hosted and auditable  
+- Ship with the **Llambo Dashboard**, accessible at `https://llambo.local` on first boot  
+- Provide a stable, hardened operating system suitable for consumer devices and professional node operators  
+
+---
+
+## 🧱 Built for Node Operators, Builders, and Homelabbers
+
+LLAMBO OS is being designed to support:
+
+### 🧩 Blockchain & Web3 Nodes (Planned)
+
+- Bitcoin Core  
+- Lightning Network (LND / Core Lightning)  
+- Monero  
+- Ethereum (Geth, Erigon, Nethermind)  
+- IPFS / Filecoin  
+- Nostr relays  
+- Electrs / Fulcrum / Specter  
+- BTCPay Server  
+- Additional ecosystem RPC and indexing apps  
+
+### ⚙️ Core Self-Hosting Apps (Planned)
+
+- Nextcloud  
+- Home Assistant  
+- Pi-hole  
+- Gitea  
+- WireGuard  
+- Jellyfin  
+- Syncthing  
+- SearxNG, Invidious, and more  
+
+All apps will run in **FreeBSD jails**, with ZFS datasets, sandboxed networks, and per-app firewall rules.
+
+---
+
+## 💡 Why LLAMBO OS?
+
+| Feature                     | LLAMBO OS (planned)                    
+|-----------------------------|---------------------------------------
+| Base OS                     | **FreeBSD** (ZFS, PF, jails)          
+| Isolation model             | Native jails                          
+| Filesystem                  | **ZFS snapshots, rollback**           
+| Security                    | PF firewall + jail isolation          
+| HTTPS out of the box        | Caddy w/ internal CA                  
+| UI                          | Llambo Dashboard                      
+| App system                  | YAML-based jail apps                  
+| Blockchain focus            | **Core mission**                      
+
+Our goal is to offer a **more stable**, **more secure**, and **more flexible** platform for running blockchain nodes and sovereign services.
+
+---
+
+## 🖥️ Hardware Targets (Initial Goals)
+
+- Raspberry Pi 4 / ARM SBCs  
+- x86 mini-PCs (NUC, Protectli, LibreBox, etc.)  
+- Dedicated LLAMBO hardware (future product line)  
+- Virtual machines and cloud environments  
+
+---
+
+## 📦 Planned Features
+
+- Preinstalled **Llambo Dashboard** served by Caddy  
+- Local HTTPS with automatic certificates  
+- App Store for installing blockchain nodes and self-hosted apps  
+- PF firewall hardening  
+- mDNS discovery (`llambo.local`)  
+- Built-in jail manager  
+- OTA updates through LLAMBO Update Service  
+- Fully reproducible builds via FreeBSD source tree  
+
+As a pre-alpha project, these components are in active design and development.
+
+---
+
+## 🧠 Philosophy
+
+LLAMBO OS is about **sovereign computing made simple**.
+
+You own the hardware.  
+You run the software.  
+You choose the apps.  
+You keep control of your data and your money.
+
+---
+
+## 🧪 Project Status
+
+LLAMBO OS is currently in **pre-alpha**.  
+We are:
+
+- Forking and preparing the FreeBSD base system  
+- Designing the Llambo Dashboard  
+- Building the App Store architecture  
+- Preparing build tooling and image pipelines  
+- Developing node templates and jail orchestration  
+
+Early contributors and testers are welcome.
+
+---
+
+## 🛠️ Development
+
+To sync with upstream FreeBSD:
+
+```sh
+git remote add upstream https://git.freebsd.org/src.git
+git fetch upstream
+git rebase upstream/main
+````
+
+Build instructions will be added as components become functional.
+
+---
+
+## 📫 Follow Development
+
+Repository: [https://github.com/TheVoice-dev/llambo-os-src](https://github.com/TheVoice-dev/llambo-os-src)
+More documentation, images, and tools will be published as the project matures.
